@@ -47,7 +47,9 @@ async function lookupAttempt() {
                 const responseData = await response.json();
                 if (responseData && responseData.length > 0 && responseData[0].auditedEntityContext && responseData[0].auditedEntityContext.entityAttemptId) {
                     const attemptId = responseData[0].auditedEntityContext.entityAttemptId;
-                    window.open(`https://app.outlier.ai/en/expert/outlieradmin/tools/lookup/${attemptId}#View%20Responses`, '_blank');
+                    const urlBase = "https://app.outlier.ai/en/expert/outlieradmin/tools/lookup/";
+                    const urlFragment = "#View%20Responses";
+                    window.open(`${urlBase}${attemptId}${urlFragment}`, '_blank');
                 } else {
                     alert('Could not find attempt ID for the given related object ID.');
                 }

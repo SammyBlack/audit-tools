@@ -1,12 +1,10 @@
 chrome.runtime.onInstalled.addListener(() => {
     chrome.storage.sync.get(["hideEnabled",
                              "selectabilityEnabled",
-                             "createOperationsEnabled",
                              "lookupMode",
                              "projectEnabled"], (data) => {
         if (data.hideEnabled === undefined) chrome.storage.sync.set({ hideEnabled: true });
         if (data.selectabilityEnabled === undefined) chrome.storage.sync.set({ selectabilityEnabled: true });
-        if (data.createOperationsEnabled === undefined) chrome.storage.sync.set({ createOperationsEnabled: false });
         if (!data.lookupMode) chrome.storage.sync.set({ lookupMode: "highlighted" });
         if (data.projectEnabled === undefined) chrome.storage.sync.set({ projectEnabled: true });
     });
@@ -15,7 +13,6 @@ chrome.runtime.onInstalled.addListener(() => {
 chrome.commands.onCommand.addListener((command) => {
     chrome.storage.sync.get(["hideEnabled",
                              "selectabilityEnabled",
-                             "createOperationsEnabled",
                              "lookupMode",
                              "projectEnabled"], (data) => {
         switch (command) {
@@ -25,8 +22,8 @@ chrome.commands.onCommand.addListener((command) => {
             case "lookup_project":
                 if (data.projectEnabled) executeScript("lookup_project.js");
                 break;
-            case "create_operation_from_clipboard":
-                if (data.createOperationsEnabled) executeScript("create_operation_from_clipboard.js");
+            case "lookup_rubric":
+                if (data.projectEnabled) executeScript("lookup_rubric.js");
                 break;
             case "lookup_attempt":
                 executeScript("lookup_attempt.js");

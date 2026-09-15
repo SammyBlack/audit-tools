@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "Audit Tools",
-    "version": "3.0.2",
+    "version": "3.1.0",
     "description": "Tools for auditors (Scale QC team)",
     "permissions": ["scripting", "storage", "activeTab", "cookies"],
     "background": {
@@ -20,11 +20,11 @@
             },
             "description": "Looks up project in OpsHub by ID"
         },
-        "create_operation_from_clipboard": {
+        "lookup_rubric": {
             "suggested_key": {
-                "default": "Alt+O"
+                "default": "Alt+R"
             },
-            "description": "Creates batch operation from clipboard IDs" 
+            "description": "Looks up rubric in OpsHub by Project ID" 
         },
         "lookup_attempt": {
             "suggested_key": {
