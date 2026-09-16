@@ -1,5 +1,5 @@
 # Tools for auditors (Scale QC team)
-## Version 3.0.1
+## Version 3.1.0
 
 ## For all auditors
 - Automatically hide "External Feedback" box in Bulk Audit
